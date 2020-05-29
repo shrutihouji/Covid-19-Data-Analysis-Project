@@ -1,0 +1,99 @@
+{% include 'base.html' %}
+
+{% block title %}  {% endblock %}
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+<h3 class="table-heading">This page is dedicated to analysing the COVID 19 data with respect to India.</h3> 
+<div class="page">
+
+<div class="total-cases-info"> 
+        <div class = "total-cases-child child1">
+            <span class="chill">Total Confirmed Cases</span>
+            <h2>
+                {{total_data[0] | safe}}
+            </h2>
+        </div>
+        <div class = "total-cases-child child2">
+            <span class="chill">Total Recovered Cases</span>
+            <h2>
+                {{total_data[1] | safe}}
+            </h2>
+        </div>
+        <div class = "total-cases-child child3">
+            <span class="chill">Total Deaths</span>
+            <h2>
+                {{total_data[2] | safe}}
+            </h2>
+        </div>
+       
+    </div>
+     
+    
+    <p class="text1"> Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.
+Most people who fall sick with COVID-19 will experience mild to moderate symptoms and recover without special treatment.
+<h3 class="table-heading">HOW IT SPREADS</h3>
+<p class="text1">The virus that causes COVID-19 is mainly transmitted through droplets generated when an infected person coughs, sneezes, or exhales. These droplets are too heavy to hang in the air, and quickly fall on floors or surfaces.
+You can be infected by breathing in the virus if you are within close proximity of someone who has COVID-19, or by touching a contaminated surface and then your eyes, nose or mouth. </p>
+<h3 class="table-heading">HOW CAN YOU PREVENT THE SPREAD OF THE CORONAVIRUS DISEASE?</h3>
+    <p class="text1"> 
+Practice Social Distancing: Avoid gatherings such as melas, haats, gatherings in religious places, social functions etc. Maintain a safe distance of at least one Metre between you and other people when in public places, especially if they are having symptoms such as cough, fever etc. to avoid direct droplet contact. Stay at home as much as possible. Avoid physical contact like handshakes, hand holding or hugs. Avoid touching surfaces such as table tops, chairs, door handles etc. b) Practice good hygiene Wash your hands frequently using soap and water: After coming home from outside or meeting other people especially if they are ill.</p>  
+
+
+
+ <h2 class="table-heading"><u>Real-time updates on Corona Cases</u></h2>
+    <div class="table-data">
+        {{returnList | safe}};
+    </div>
+
+<h2 class="table-heading"><u>Date-wise total samples tested of COVID 19 till 17th May,2020</u></h2>
+    <div class="plots">
+        {{dateWiseData | safe}}
+    </div>
+<p class="text">Testing for Covid-19 has increased fivefold since April 1, when the cumulative number of people tested was 38,914, and daily testing is expected to cross 100,000 tests a day, from 5,580 a day on April 1. Covid-19 is diagnosed using Reverse Transcription Polymerase Chain Reaction (RT-PCR) assay, which is the only diagnostic test for Covid-19 approved by the World Health Organization.</p>
+
+ <h2 class="table-heading"><u>Recovery v/s Deaths</u></h2>
+    <div class="plots">
+        {{top10list | safe}}
+    </div>
+    <p class="text"> The cases in Maharashtra are high in both recovery and deaths. It indicates that either there was a delay in testing for COVID-19 due to which cases could not be controlled or there have been other comorbidities attached with the patients.  Kerala has lower deaths and higher recovery which means it has shown good record in controlling the cases and has provided good medical healthcare support. States with lesser number of both recovery and deaths are having cases only in recent times and evaluation after a few days will be able to clear the air about their condition. </p>
+
+
+
+    <h2 class="table-heading"><u>Age group Details</u></h2>
+    <div class="plots">
+        {{ageWiseDetails | safe}}
+    </div>
+    <p class="text"> A majority of the coronavirus (COVID-19) cases in India affected people between ages 19.5 and 49.5. Of these, the age group between 20 and 29 years old were most affected . This trend was significantly lower when compared to findings from other countries. However, compared to many western countries, India also had a younger population directly affecting the proportion of COVID-19 cases. </p>
+
+     <h2 class="table-heading"><u>State with higher number of deaths</u></h2>
+    <div class="plots">
+        {{figure1 | safe}}
+    </div>
+
+    <p class="text">Maharashtra witnessed a huge spike in coronavirus deaths . Mumbai alone accounted for more number of deaths in the state.
+
+Gujarat became the second state to record more than 400 deaths. 
+
+Madhya Pradesh continued to report high number of COVID-19 deaths after Gujarat. The state recorded approximately more than 200 deaths due to COVID-19 infections.</p>
+ <h2 class="table-heading"><u>Percentage of total confirmed cases for all states of India</u></h2>
+    <div class="plots">
+        {{figure2 | safe}}
+    </div>
+<p class="text">Pie chart display total confirmed cases in percentage format of all States in India.</p>
+
+ <h2 class="table-heading"><u>15  States with lowest confirmed cases in india</u></h2>
+    <div class="plots">
+        {{figure3 | safe}}
+    </div>
+<p class="text">Arunachal Pradesh shows the lowest number of confirmed coronavirus cases among all the States in India.</p>
+
+</div>
+
+{% endblock %}
+
+{% block body %}
+    
+{% endblock %}
